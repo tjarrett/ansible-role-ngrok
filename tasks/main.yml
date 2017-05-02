@@ -17,7 +17,19 @@
 - name: Getting ngrok
   unarchive:
     src: /tmp/ngrok.zip
+    dest: /tmp
+    creates: path=/tmp/ngrok
+  when: not ngrok_bin.stat.exists
+
+- name: Install ngrok
+  copy:
+    src: /tmp/ngrok
     dest: "{{ ngrok_install_path }}"
     mode: "u=rwx,g=rx,o=rx"
     owner: "{{ ngrok_bin_owner }}"
     group: "{{ ngrok_bin_group }}"
+  when: not ngrok_bin.stat.exists
+
+- name: Remove no longer needed ngrok files
+  file: path=/tmp/ngrok.zip state=absent
+  when: not ngrok_bin.stat.exists

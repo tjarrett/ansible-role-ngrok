@@ -5,4 +5,4 @@ ngrok_bin_owner: root
 ngrok_bin_group: root
 
 ngrok_executable: ngrok
-ngrok_install_path: "/usr/bin/local/{{ ngrok_executable }}"
+ngrok_install_path: "/usr/local/bin/{{ ngrok_executable }}"
