@@ -1,0 +1,13 @@
+---
+- name: Check if ngrok is installed
+  stat: "path={{ ngrok_install_dir }}"
+  register: ngrok_bin
+
+- name: Getting ngrok
+  get_url:
+    url: "{{ ngrok_download_url }}"
+    dest: "{{ ngrok_install_dir }}"
+    mode: 0755
+    owner: "{{ ngrok_bin_owner }}"
+    group: "{{ ngrok_bin_group }}"
+  when: not ngrok_bin.stat.exists

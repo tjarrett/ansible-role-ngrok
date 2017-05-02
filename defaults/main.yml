@@ -1,0 +1,5 @@
+---
+ngrok_install_dir: /usr/bin/local/ngrok
+ngrok_download_url: "https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip"
+ngrok_bin_owner: root
+ngrok_bin_group: root

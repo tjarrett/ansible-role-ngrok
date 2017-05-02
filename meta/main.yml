@@ -1,0 +1,24 @@
+---
+dependencies: []
+
+galaxy_info:
+  author: phalcon
+  description: Secure tunnels to localhost
+  company: Phalcon Team
+  license: MIT
+  min_ansible_version: 1.8
+  platforms:
+    - name: EL
+      versions:
+        - all
+    - name: Ubuntu
+      versions:
+        - all
+    - name: Debian
+      versions:
+        - all
+  galaxy_tags:
+    - system
+    - ngrok
+    - networking
+    - tunnel
