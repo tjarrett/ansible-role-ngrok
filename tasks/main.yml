@@ -1,9 +1,23 @@
 ---
+- name: Set ngrok_executable variable to a default if not defined
+  set_fact:
+    ngrok_executable: ngrok
+  when: ngrok_executable is not defined
+
+- name: Check if ngrok is installed
+  stat: "path={{ ngrok_install_path }}"
+  register: ngrok_bin
+
+- name: Downmload ngrok
+  get_url:
+    url: "{{ ngrok_download_url }}"
+    dest: /tmp/ngrok.zip
+  when: not ngrok_bin.stat.exists
+
 - name: Getting ngrok
   unarchive:
-    src: "{{ ngrok_download_url }}"
-    dest: "{{ ngrok_install_dir }}"
+    src: /tmp/ngrok.zip
+    dest: "{{ ngrok_install_path }}"
     mode: "u=rwx,g=rx,o=rx"
     owner: "{{ ngrok_bin_owner }}"
     group: "{{ ngrok_bin_group }}"
-    creates: "{{ ngrok_install_dir }}"
