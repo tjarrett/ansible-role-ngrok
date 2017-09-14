@@ -33,5 +33,8 @@
   when: not ngrok_bin.stat.exists
 
 - name: Remove no longer needed ngrok files
-  file: path=/tmp/ngrok.zip state=absent
+  file: path="{{ item }}" state=absent
+  with_items:
+    - /tmp/ngrok.zip
+    - /tmp/ngrok
   when: not ngrok_bin.stat.exists
