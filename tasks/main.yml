@@ -29,6 +29,7 @@
     mode: "u=rwx,g=rx,o=rx"
     owner: "{{ ngrok_bin_owner }}"
     group: "{{ ngrok_bin_group }}"
+    remote_src: yes
   when: not ngrok_bin.stat.exists
 
 - name: Remove no longer needed ngrok files
