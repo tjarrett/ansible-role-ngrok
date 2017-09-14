@@ -8,7 +8,7 @@
   stat: "path={{ ngrok_install_path }}"
   register: ngrok_bin
 
-- name: Downmload ngrok
+- name: Download ngrok
   get_url:
     url: "{{ ngrok_download_url }}"
     dest: /tmp/ngrok.zip
