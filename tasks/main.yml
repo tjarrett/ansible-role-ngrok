@@ -14,7 +14,7 @@
     dest: /tmp/ngrok.zip
   when: not ngrok_bin.stat.exists
 
-- name: Getting ngrok
+- name: Unarchive ngrok
   unarchive:
     src: /tmp/ngrok.zip
     dest: /tmp
