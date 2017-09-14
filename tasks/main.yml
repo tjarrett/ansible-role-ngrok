@@ -19,6 +19,7 @@
     src: /tmp/ngrok.zip
     dest: /tmp
     creates: path=/tmp/ngrok
+    remote_src: yes
   when: not ngrok_bin.stat.exists
 
 - name: Install ngrok
